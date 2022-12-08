@@ -1,0 +1,104 @@
+/**
+ * GENERAL
+ */
+ html {
+	box-sizing: border-box;
+        font-size: 100%;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+        font-kerning:auto;
+}
+img{
+	max-width:100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+body {
+       font-family: Tahoma, Verdana, sans-serif;
+       line-height:1.15;
+	   background: #f7e9dc;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   height: 100vh;
+}
+main{
+	width: min(70%, 550px);
+}
+
+            /*aside section*/
+
+aside{
+	background: #ec755d url(..//images/logo.svg) 95% center no-repeat;
+	border-radius: 15px;
+	padding: 3% 5%;
+}
+aside p{
+	margin-top: 6px;
+	margin-bottom: 6px;
+	color: white;
+}
+aside p:first-child{
+	font-size: 0.7rem;
+	color: #fce3d7;
+}
+aside p:last-child{
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+footer{
+	align-self: end;
+	position: absolute;
+	bottom: 1px;
+}
+
+            /*main section*/
+section{
+	background: white;
+	border-radius: 15px ;
+	padding-bottom: 30px;
+}
+section h1 {
+	color: #352015;
+    padding: 5% 5%;
+	font-weight: normal;
+}
+
+.days{
+	padding: 0 5%;
+	display: flex;
+	justify-content: space-between;
+}
+.bottom-section{
+ margin: 0 5%;
+ border-top: 1px solid #f3ece2;
+ display: flex;
+ justify-content: space-between;
+}
+
+.month-summary p:first-child{
+	color: #9b948c;
+	font-size: 0.8rem;
+	margin: 18px 0 0;
+}
+.month-summary p:last-child{
+	color: #362215;
+	font-size: 1.7rem;
+	font-weight: bold;
+	margin: 5px 0 0;
+
+}
+.percentage-sum p:first-child{
+	font-size: 0.8rem;
+	margin: 38px 0 0;
+	color: #362215;
+	font-weight: bold;
+}
+.percentage-sum p:last-child{
+	margin: 5px 0 23px;
+	color: #9b948c;
+	font-size: 0.8rem;
+}
