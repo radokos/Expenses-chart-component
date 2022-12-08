@@ -10,51 +10,35 @@
     <style>
        .attribution { font-size: 11px; text-align: center; }
        .attribution a { color: hsl(228, 45%, 44%); }
-    </style>
+    </style>     
   </head>
 
   <body>
-   
     
-    
-    
-  <!-- mon
-    tue
-    wed
-    thu
-    fri
-    sat
-    sun -->
-  
-  
-  
-  <main>
-    <aside>
-      <p>My balance</p>
-      <p>$921.48</p>
-    </aside>
+   <main>
+      <aside>
+        <p>My balance</p>
+        <p><span>$</span>921.48</p>
+      </aside>
 
-    <section class="main-section">
-         <h1>Spending - Last 7 days</h1>
-         <div id="data" class="days">
-            <p></p>
-            <p>mon</p>
+      <section class="main-section">
+          <h1>Spending - Last 7 days</h1>
+            
+          <div id="data" class="days">
+          </div>
+            
+          <div class="bottom-section">
+              <div class="month-summary">
+                <p>Total this month</p>
+                <p><span>$</span>478.33</p>
+              </div>
+              <div class="percentage-sum">
+                <p>+2.4%</p>
+                <p>from last month</p>
+              </div>
+          </div>
+       </section>  
 
-            <p></p>
-            <p>tue</p>
-         </div>
-          
-         <div class="bottom-section">
-            <div class="month-summary">
-              <p>Total this month</p>
-              <p>$478.33</p>
-            </div>
-            <div class="percentage-sum">
-              <p>+2.4%</p>
-              <p>from last month</p>
-            </div>
-         </div>
-    </section>
    
   </main>
 
@@ -67,21 +51,45 @@
 
   </footer>
 
-  <script type="text/javascript" src="abc.json"></script>
+  <script type="text/javascript" src="data.json"></script>
   <script type="text/javascript">
-    function load() {
-      var mydata = JSON.parse(data);
-      alert(mydata.length);
-         console.log(mydata);
-      var div = document.getElementById('data');
 
-      for (var i = 0; i < mydata.length; i++) {
-        div.innerHTML = div.innerHTML + "<p class='inner' id=" + i + ">" + mydata[i].name + "</p>" + "<br>";
-      }
-    }
-   
-  </script>
-   
+
+    fetch('data.json')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+
+        var vyska = 0;
+        var div = document.getElementById('data');
+
+        for (var i = 0; i < data.length; i++) { 
+         
+           if (data[i].amount > vyska) {
+                vyska = data[i].amount;
+               }
+         };
+       
+        for (var i = 0; i < data.length; i++) {
+           if (data[i].amount < vyska){
+                   div.innerHTML = div.innerHTML + "<div class='inner'>" +
+               "<p class='amount'>" + "$" + data[i].amount + "</p>" +
+               "<p class='column' style='height: " + data[i].amount / 6.5 + "rem;'>" + data[i].amount + "</p>" +
+               "<p class='day'>" + data[i].day + "</p>" +
+               "</div><br>";
+           }else{
+              div.innerHTML = div.innerHTML + "<div class='inner'>" +
+               "<p class='amount'>" + "$" + data[i].amount + "</p>" +
+               "<p id='highest_column' class='column' style='height: " + data[i].amount / 6.5 + "rem;'>" + data[i].amount + "</p>" +
+               "<p class='day'>" + data[i].day + "</p>" +
+               "</div><br>";
+           };                
+        };
+       
+      });               
+  </script> 
+    
 </body>
 
 </html>

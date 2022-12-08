@@ -3,7 +3,9 @@
  */
  html {
 	box-sizing: border-box;
-        font-size: 100%;
+    font-size: 100%;
+	display: grid;
+	height: 100%;
 }
 *, *:before, *:after {
 	box-sizing: inherit;
@@ -22,7 +24,6 @@ body {
 	   display: flex;
 	   justify-content: center;
 	   align-items: center;
-	   height: 100vh;
 }
 main{
 	width: min(70%, 550px);
@@ -54,6 +55,9 @@ footer{
 	position: absolute;
 	bottom: 1px;
 }
+span{
+	font-size: 1.25rem;
+}
 
             /*main section*/
 section{
@@ -63,14 +67,18 @@ section{
 }
 section h1 {
 	color: #352015;
-    padding: 5% 5%;
+    padding: 5% 5% 2%;
+	margin-bottom: 0;
 	font-weight: normal;
+	font-size: 1.6rem;
+	margin-left: 1.5%;
 }
 
 .days{
 	padding: 0 5%;
 	display: flex;
 	justify-content: space-between;
+
 }
 .bottom-section{
  margin: 0 5%;
@@ -91,6 +99,10 @@ section h1 {
 	margin: 5px 0 0;
 
 }
+.month-summary span{
+	font-size: 1.8rem;
+}
+
 .percentage-sum p:first-child{
 	font-size: 0.8rem;
 	margin: 38px 0 0;
@@ -101,4 +113,60 @@ section h1 {
 	margin: 5px 0 23px;
 	color: #9b948c;
 	font-size: 0.8rem;
+}
+
+            /* data style */
+.amount{
+	background: #392313;
+	color: white;
+	border-radius: 5px;
+	padding: 4px 5px;
+	visibility: hidden;
+	margin-bottom: 0.4rem;
+}
+.inner{
+	display: flex;
+	flex-direction: column;
+	align-self: end;
+}
+.column{
+	background: #ec755d;
+	color: #ec755d;
+	margin: 5px 8px 0 8px;
+	border-radius: 6px;
+}
+#highest_column {
+	background: #77b4bc;
+	color: #77b4bc ;
+}
+
+.day{
+	text-align: center;
+	margin-top: 10px;
+	color: #bbb6b2;
+}
+
+       /*active states*/
+.column:hover,
+.column:active{
+	background: #ff9b87;
+	cursor: pointer;
+	color: #ff9b87;
+}
+.inner:hover .amount{
+	visibility: visible;
+} 
+#highest_column:hover,
+#highest_column:active{
+    background: #b4dfe5;
+	color:#b4dfe5 ;
+}
+
+      /*media queries*/
+
+@media screen and (max-width:1200px) {
+
+	body {
+		/*max-width: 100vw;*/
+	}
 }
